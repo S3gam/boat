@@ -1,0 +1,41 @@
+.cabecera {
+    background-color: #5b1a1a; /* granate */
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.cabecera h1 {
+    margin-top: 15px;
+    font-size: 32px;
+
+    /* tipografía elegante similar (puedes cambiarla luego) */
+    font-family: "Cinzel", "Georgia", serif;
+    letter-spacing: 1px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    background-color: #5b1a1a; /* granate */
+    color: white;
+    margin-top: 20px;
+}
+
+.video-container iframe {
+    width: 90%;
+    max-width: 700px;
+    height: 400px;
+    border-radius: 12px;
+}
