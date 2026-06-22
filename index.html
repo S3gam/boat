@@ -13,7 +13,7 @@
 
 <body>
 
-<header class="cabecera">
+<header class="cabecera reveal">
 
   <img src="imagenes/Logo-Moros-Espanyols-Ambaixada-01.png" alt="Logo Embajada" class="logo">
 
@@ -24,7 +24,7 @@
 </header>
 
 
-<div class="video-container">
+<div class="video-container reveal">
 
   <iframe 
     src="https://www.youtube.com/embed/kSFcvDpK4G0"
@@ -36,43 +36,177 @@
 </div>
 
 
-<div class="pergamino">
+<div class="pergamino reveal">
   <img src="imagenes/pergamino.png" alt="Pergamino antiguo" />
 </div>
 
-<div class="portada">
-
-  <h1>La historia de nuestra entrada</h1>
-  <p>Moros y Cristianos</p>
-
+<div class="bandera-seleccion reveal">
+  <div class="bandera-wrap">
+    <button class="bandera-flecha izquierda" id="prevFlag" aria-label="Anterior bandera">&#8249;</button>
+    <div class="banderas">
+      <div class="banderas-track">
+        <div class="bandera position-left">
+          <img src="imagenes/bandera1.jpeg" alt="Bandera 1">
+        </div>
+        <div class="bandera position-center">
+          <img src="imagenes/bandera2.jpeg" alt="Bandera 2">
+        </div>
+        <div class="bandera position-right">
+          <img src="imagenes/bandera3.jpeg" alt="Bandera 3">
+        </div>
+        <div class="bandera">
+          <img src="imagenes/bandera4.jpeg" alt="Bandera 4">
+        </div>
+      </div>
+    </div>
+    <button class="bandera-flecha derecha" id="nextFlag" aria-label="Siguiente bandera">&#8250;</button>
+  </div>
+  <p class="bandera-texto" id="banderaTexto">Bandera central 2: símbolo de la unidad y la tradición de nuestra embajada.</p>
 </div>
 
 
-<div class="contenido">
+<footer class="pie-pagina reveal">
+  <img src="imagenes/Logo-Moros-Espanyols-Ambaixada-01.png" alt="Logo izquierda" class="logo-footer">
+  <div class="pie-texto">Honor al Moro Espanyol</div>
+  <img src="imagenes/Logo-Moros-Espanyols-Ambaixada-01.png" alt="Logo derecha" class="logo-footer">
+</footer>
 
-  <h2>El comienzo</h2>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const reveals = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      reveals.forEach(el => el.classList.add('active'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
 
-  <p>
-    Aquí escribiremos la historia que queréis contar.
-    Podéis poner capítulos, personajes y explicaciones.
-  </p>
+    reveals.forEach(el => observer.observe(el));
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const flags = [
+      {
+        src: 'imagenes/bandera1.jpeg',
+        title: 'Familia del reino de Albaicón',
+        description: 'Des de les muntanyes i les planes de l’antic Regne d’Albaicín, cavalquen els Senyors dels Cavalls, hereus d’un llinatge antic nascut entre la sorra, el vent i la memòria dels seus avantpassats\n\nArriben amb el pas ferm d’aquells que coneixen el valor de la seua sang i l’orgull de les seues arrels. Un poble marcat per la força dels seus orígens africans, per la saviesa dels seus ancestres i per l’esperit indomable d’aquells que mai van acceptar viure sotmesos.\n\nSón guerrers de coratge, guardians d’un llegat que ha sobreviscut al pas dels segles. Homes i dones formats en la disciplina, en l’honor i en la lluita, que hui tornen a escoltar la crida de la història.\n\nEls seus cavalls colpegen la terra com tambors de guerra. Cada pas ressona com un tro anunciant la seua arribada. Les seues mirades cremen com el foc d’un poble que recorda les seues victòries i que encara porta viva la flama dels seus ideals.\n\nLes seues vestidures guerreres no són només símbol de força; són el reflex d’un regne que va resistir, d’una estirp que va lluitar i d’un nom que encara perdura entre llegendes.\n\nSón el llegat dels Banu-Racín, l’exèrcit que emergeix de les pàgines oblidades de la història per tornar a caminar entre nosaltres.\n\nNo arriben només per combatre… arriben per honrar els seus avantpassats, per defensar el seu honor i per demostrar que la força d’un poble no desapareix mentre la seua memòria continue viva.\n\nAmb valentia en el cor, orgull en l’ànima i la mirada fixada en la glòria, els Senyors dels Cavalls avancen cap al seu destí.\n\nPerquè quan un poble cavalca unit, ni el temps ni l’oblit poden derrotar-lo.'
+      },
+      {
+        src: 'imagenes/bandera2.jpeg',
+        title: 'Familia dels Abadíes de Sevilla',
+        description: 'S’obri pas la família dels Abadíes, descendents del gloriós Regne de Sevilla, hereus d’un llinatge antic que va saber convertir el seu nom en símbol de poder, cultura i grandesa.\n\nArriben envoltats d’un seguici refinat i ostentós, on cada detall parla d’una història escrita amb esforç, ambició i orgull. No és només una mostra de riquesa ni una exhibició de poder; és el record viu d’una família que va saber imposar-se no sols amb força, sinó amb intel·ligència, elegància i domini.\n\nEls seus passos anuncien l’arribada d’un poble que porta darrere seu segles de memòria. Una estirp que ha vist créixer palaus, ciutats i regnes; una família que entén que la veritable autoritat no sempre naix del fil de l’espasa, sinó del respecte que desperta la seua presència.\n\nEl blanc que vesteixen representa la puresa del seu llinatge, la noblesa dels seus orígens i la llum d’una història que encara perdura.\n\nEl negre simbolitza la solemnitat de la seua autoritat, la fermesa d’aquells que han governat amb decisió i el pes d’un nom que ha travessat generacions.\n\nEl roig encén la passió que crema en els seus cors; el valor, la força i el foc d’un poble que mai ha renunciat als seus ideals.\n\nI el verd representa l’esperança, la vida i el futur d’un regne que, encara que el temps avance, mai no desapareix.\n\nPerquè els Abadíes no necessiten alçar la veu ni desembeinar l’espasa per reclamar el seu lloc…\n\nLa seua mirada, el seu caminar i el seu orgull ja són un estendard de prestigi, influència i glòria eterna.\n\nAvancen, doncs, els Abadíes… perquè quan un llinatge porta la història a les seues esquenes, cada pas es converteix en llegenda.'
+      },
+      {
+        src: 'imagenes/bandera3.jpeg',
+        title: 'Familia del Amiries de València',
+        description: 'Sorgixen imponents els Amiries del Regne de València, un poble forjat entre murs, batalles i conquestes, el més guerrerrer i indòmit de tots els regnes.\n\nArriben des de terres on el valor no era una elecció, sinó una forma de vida. Homes i dones acostumats al so de les armes, al rugir dels cavalls i al pes d’un jurament fet davant dels seus avantpassats.\n\nForjats en la batalla i temperats pel foc de la guerra, han conegut el fred de l’acer i la pols dels camps de combat. Cada cicatriu és un record; cada victòria, una pàgina escrita en la història d’un regne que mai va acceptar agenollar-se.\n\nAvancen amb la força d’un exèrcit que no coneix la por, amb la disciplina d’aquells que han defensat les seues terres fins al final. Perquè els Amiries no només porten armes… porten l’orgull d’un poble nascut per resistir i véncer.\n\nEl negre dels seus estendards evoca l’ombra que precedeix la tempesta, el respecte que imposa un exèrcit que camina unit i la força d’aquells que arriben quan la batalla ja ha començat.\n\nEl roig representa el foc del seu coratge, la passió del combat i la sang vessada per tots aquells que van lluitar abans que ells. És el color dels guerrers que mai van abandonar el seu lloc.\n\nI el blanc recorda l’esperança, la llum després de la victòria i el somni d’un regne que sempre va mirar cap endavant, fins i tot quan l’horitzó estava cobert per la incertesa.\n\nSón els fills de la guerra, els guardians del combat, els hereus d’un esperit que no es doblega davant cap enemic.\n\nHui no arriben només com un exèrcit… arriben com una llegenda viva.\n\nEls Amiries responen a la crida de la història, i amb ells camina la força d’un regne que va nàixer per lluitar, per avançar i per conquerir.\n\nQue tremole la terra al seu pas… perquè quan els Amiries alcen els seus estendards, el record dels seus avantpassats torna a caminar entre nosaltres.'
+      },
+      {
+        src: 'imagenes/bandera4.jpeg',
+        title: 'Bandera 4',
+        description: 'Representación moderna y colorida que complementa nuestra embajada.'
+      }
+    ];
 
-  <img src="imagenes/foto1.jpg">
+    let current = 1; // index of center flag in flags[]
+    const track = document.querySelector('.banderas-track');
+    const textEl = document.getElementById('banderaTexto');
+    const prevBtn = document.getElementById('prevFlag');
+    const nextBtn = document.getElementById('nextFlag');
+    let isAnimating = false;
 
-  <h2>Escucha la historia</h2>
+    function slotShift() {
+      const card = track.querySelector('.bandera');
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      return card.offsetWidth + gap;
+    }
 
-  <audio controls>
-    <source src="audio/historia.mp3">
-  </audio>
+    function updateText() {
+      const flag = flags[current];
+      textEl.innerHTML = `
+        <strong>${flag.title}</strong>
+        <span class="bandera-body">${flag.description}</span>
+      `;
+    }
 
-  <h2>Más información</h2>
+    function refreshPositions() {
+      const cards = Array.from(track.children);
+      cards.forEach(c => {
+        c.classList.remove('position-left','position-center','position-right');
+      });
+      if (cards[0]) cards[0].classList.add('position-left');
+      if (cards[1]) cards[1].classList.add('position-center');
+      if (cards[2]) cards[2].classList.add('position-right');
+    }
 
-  <a class="boton" href="#">
-    Continuar leyendo
-  </a>
+    nextBtn.addEventListener('click', () => {
+      if (isAnimating) return;
+      isAnimating = true;
+      const shift = slotShift();
+      const cards = Array.from(track.children);
 
-</div>
+      // Predict new positions during the next slide animation
+      cards.forEach(card => card.classList.remove('position-left','position-center','position-right'));
+      if (cards[1]) cards[1].classList.add('position-left');
+      if (cards[2]) cards[2].classList.add('position-center');
+      if (cards[3]) cards[3].classList.add('position-right');
 
+      track.style.transition = 'transform 260ms cubic-bezier(.2,.85,.25,1)';
+      track.style.transform = `translateX(-${shift}px)`;
+
+      track.addEventListener('transitionend', function handler() {
+        track.removeEventListener('transitionend', handler);
+        track.style.transition = 'none';
+        track.appendChild(track.firstElementChild);
+        track.style.transform = 'none';
+        current = (current + 1) % flags.length;
+        refreshPositions();
+        updateText();
+        requestAnimationFrame(() => { isAnimating = false; });
+      });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (isAnimating) return;
+      isAnimating = true;
+      const shift = slotShift();
+
+      track.style.transition = 'none';
+      track.insertBefore(track.lastElementChild, track.firstElementChild);
+      track.style.transform = `translateX(-${shift}px)`;
+      void track.offsetWidth;
+
+      const cards = Array.from(track.children);
+      cards.forEach(card => card.classList.remove('position-left','position-center','position-right'));
+      if (cards[0]) cards[0].classList.add('position-left');
+      if (cards[1]) cards[1].classList.add('position-center');
+      if (cards[2]) cards[2].classList.add('position-right');
+
+      track.style.transition = 'transform 260ms cubic-bezier(.2,.85,.25,1)';
+      track.style.transform = 'none';
+
+      track.addEventListener('transitionend', function handlerPrev() {
+        track.removeEventListener('transitionend', handlerPrev);
+        track.style.transition = 'none';
+        current = (current - 1 + flags.length) % flags.length;
+        refreshPositions();
+        updateText();
+        requestAnimationFrame(() => { isAnimating = false; });
+      });
+    });
+
+    // initial text
+    refreshPositions();
+    updateText();
+  });
+</script>
 
 </body>
 </html>

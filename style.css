@@ -29,7 +29,7 @@
     align-items: center;
     justify-content: center;
 
-    gap: 20px; /* espacio entre logo y texto */
+    gap: 32px; /* espacio entre logo y texto */
     padding: 30px 20px;
     text-align: center;
 }
@@ -44,8 +44,41 @@
     letter-spacing: 1px;
 }
 
+.pie-pagina {
+    background-color: #5b1a1a;
+    color: #f5ead8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 16px;
+    text-align: center;
+}
+
+.pie-pagina .pie-texto {
+    font-family: "Hidayatullah", serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.pie-pagina {
+    background-color: #5b1a1a;
+    color: #f5ead8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 20px 16px;
+    text-align: center;
+}
+
+.logo-footer {
+    width: 72px;
+    height: auto;
+}
+
 .logo {
-    width: 120px;
+    width: 80px;
     height: auto;
 }
 
@@ -64,6 +97,17 @@
     border-radius: 12px;
 }
 
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .pergamino {
     margin: 20px auto;
     display: flex;
@@ -77,6 +121,192 @@
     max-width: 900px;
     border-radius: 0;
     box-shadow: none;
+}
+
+.bandera-seleccion {
+    margin: 30px auto;
+    max-width: 900px;
+    padding: 24px 18px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(91, 26, 26, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.bandera-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.banderas {
+    width: 804px; /* 3 * 260px + 2 * 12px gap */
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    display: block;
+}
+
+.banderas-track {
+    display: flex;
+    gap: 12px;
+    transition: transform 260ms cubic-bezier(.2,.85,.25,1);
+    will-change: transform;
+}
+
+
+.bandera {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 260px;
+    width: 260px;
+    transform: translateX(0) scale(0.82);
+    opacity: 0.6;
+    transition: transform 260ms cubic-bezier(.2,.85,.25,1), opacity 200ms ease;
+    will-change: transform, opacity;
+}
+
+.bandera img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 18px;
+}
+
+.position-left {
+    transform: translateX(0) scale(0.88);
+    z-index: 1;
+    opacity: 0.85;
+}
+
+.position-right {
+    transform: translateX(0) scale(0.88);
+    z-index: 1;
+    opacity: 0.85;
+}
+
+.position-center {
+    transform: translateX(0) scale(1);
+    z-index: 2;
+    opacity: 1;
+}
+
+.bandera img {
+    transition: opacity 200ms ease, filter 200ms ease;
+}
+
+.bandera img.fade {
+    opacity: 0;
+    transform: scale(0.92);
+}
+
+/* Flechas absolutas a los laterales del marco */
+.bandera-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.bandera-flecha.izquierda { left: 12px; }
+.bandera-flecha.derecha { right: 12px; }
+
+.position-left img,
+.position-right img {
+    filter: saturate(0.5) brightness(0.95);
+    opacity: 0.9;
+}
+
+.position-center img {
+    filter: none;
+    opacity: 1;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+}
+
+.bandera-flecha {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background-color: #5b1a1a;
+    color: #f5ead8;
+    font-size: 24px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.bandera-flecha:hover {
+    transform: scale(1.05);
+    background-color: #6f2323;
+}
+
+.bandera-texto {
+    margin-top: 20px;
+    color: #3d2d12;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bandera-texto strong {
+    font-family: 'Hidayatullah', serif;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.bandera-texto .bandera-body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+@media (max-width: 840px) {
+    .bandera-wrap {
+        flex-direction: column;
+    }
+    .bandera-flecha {
+        width: 38px;
+        height: 38px;
+    }
+    .bandera.central {
+        width: 240px;
+        min-width: 240px;
+    }
+    .bandera.lateral {
+        width: 120px;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 600px) {
+    .bandera-wrap {
+        gap: 10px;
+    }
+    .bandera-flecha {
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+    }
+    .bandera.central {
+        width: 200px;
+        min-width: 200px;
+    }
+    .bandera.lateral {
+        width: 100px;
+        min-width: 100px;
+    }
+    .bandera-texto {
+        font-size: 16px;
+    }
 }
 
 body {
