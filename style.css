@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .cabecera {
     background-color: #5b1a1a; /* granate */
     color: white;
@@ -38,4 +44,53 @@
     max-width: 700px;
     height: 400px;
     border-radius: 12px;
+}
+
+
+body {
+    margin:0;
+    font-family: Arial;
+    background:#f5ead8;
+}
+
+
+.portada {
+
+background:#5b1a1a;
+color:white;
+padding:60px 20px;
+text-align:center;
+
+}
+
+.portada h1 {
+    font-size: 40px;
+}
+
+
+.contenido {
+
+padding:30px;
+
+}
+
+
+img {
+
+width:100%;
+max-width:600px;
+border-radius:20px;
+
+}
+
+
+.boton {
+
+background:#c99b2b;
+color:white;
+padding:15px;
+display:inline-block;
+border-radius:10px;
+text-decoration:none;
+
 }
