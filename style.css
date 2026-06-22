@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Kabyah';
+    src: url('fonts/Kabyah-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hidayatullah';
+    src: url('fonts/hidayatullah DEMO.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,14 +21,15 @@
 }
 
 .cabecera {
-    background-color: #5b1a1a; /* granate */
+    background-color: #5b1a1a;
     color: white;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* 👈 clave: en fila */
     align-items: center;
     justify-content: center;
 
+    gap: 20px; /* espacio entre logo y texto */
     padding: 30px 20px;
     text-align: center;
 }
@@ -22,7 +39,8 @@
     font-size: 32px;
 
     /* tipografía elegante similar (puedes cambiarla luego) */
-    font-family: "Cinzel", "Georgia", serif;
+    font-family: "Hidayatullah", serif;
+    color:#f5ead8;
     letter-spacing: 1px;
 }
 
@@ -46,6 +64,20 @@
     border-radius: 12px;
 }
 
+.pergamino {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    background: transparent;
+}
+
+.pergamino img {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 0;
+    box-shadow: none;
+}
 
 body {
     margin:0;
