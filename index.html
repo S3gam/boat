@@ -41,6 +41,7 @@
 </div>
 
 <div class="bandera-seleccion reveal">
+  <h2 class="section-title reveal">Coneix les quatre famílies</h2>
   <div class="bandera-wrap">
     <button class="bandera-flecha izquierda" id="prevFlag" aria-label="Anterior bandera">&#8249;</button>
     <div class="banderas">
@@ -64,6 +65,27 @@
   <p class="bandera-texto" id="banderaTexto">Bandera central 2: símbolo de la unidad y la tradición de nuestra embajada.</p>
 </div>
 
+<div class="countdown-section reveal">
+  <h3 class="countdown-title">Descobreix la història completa en...</h3>
+  <div class="countdown-container">
+    <div class="countdown-unit">
+      <div class="countdown-number" id="days">0</div>
+      <div class="countdown-label">Días</div>
+    </div>
+    <div class="countdown-unit">
+      <div class="countdown-number" id="hours">0</div>
+      <div class="countdown-label">Horas</div>
+    </div>
+    <div class="countdown-unit">
+      <div class="countdown-number" id="minutes">0</div>
+      <div class="countdown-label">Minutos</div>
+    </div>
+    <div class="countdown-unit">
+      <div class="countdown-number" id="seconds">0</div>
+      <div class="countdown-label">Segundos</div>
+    </div>
+  </div>
+</div>
 
 <footer class="pie-pagina reveal">
   <img src="imagenes/Logo-Moros-Espanyols-Ambaixada-01.png" alt="Logo izquierda" class="logo-footer">
@@ -230,5 +252,35 @@ I amb cada pas dels Almoràvids, la llegenda torna a nàixer.`
   });
 </script>
 
-</body>
+<script>
+  // Countdown hasta el 21 de agosto a las 23:59
+  document.addEventListener('DOMContentLoaded', function () {
+    function updateCountdown() {
+      const targetDate = new Date(2026, 7, 21, 23, 59, 0).getTime(); // Agosto es mes 7 (0-indexado)
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000); // Actualizar cada segundo
+  });
+</script>
 </html>
