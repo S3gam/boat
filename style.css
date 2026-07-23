@@ -289,6 +289,59 @@
     margin-top: 30px;
 }
 
+.pdf-section {
+    max-width: 900px;
+    margin: 30px auto 40px;
+    padding: 24px 18px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(91, 26, 26, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.pdf-title {
+    font-family: "Hidayatullah", serif;
+    font-size: 32px;
+    color: #5b1a1a;
+    margin-bottom: 12px;
+}
+
+.pdf-text {
+    color: #3d2d12;
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+.pdf-frame {
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(91, 26, 26, 0.24);
+    background: #fff;
+}
+
+.pdf-frame embed {
+    width: 100%;
+    min-height: 620px;
+    display: block;
+    border: none;
+}
+
+.pdf-link {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 18px;
+    background-color: #5b1a1a;
+    color: #f5ead8;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: bold;
+}
+
+.pdf-link:hover {
+    background-color: #6f2323;
+}
+
 .countdown-title {
     font-family: "Hidayatullah", serif;
     font-size: 32px;

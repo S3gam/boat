@@ -66,7 +66,7 @@
 </div>
 
 <div class="countdown-section reveal">
-  <h3 class="countdown-title">Descobreix la història completa en...</h3>
+  <h3 class="countdown-title" id="countdownTitle">Descobreix la història completa en...</h3>
   <div class="countdown-container">
     <div class="countdown-unit">
       <div class="countdown-number" id="days">0</div>
@@ -85,6 +85,15 @@
       <div class="countdown-label">Segundos</div>
     </div>
   </div>
+</div>
+
+<div class="pdf-section reveal" id="pdfSection" hidden>
+  <h3 class="pdf-title">L' Ambaixada 2026 ja està ací</h3>
+  <p class="pdf-text">Camina amb nosaltres i descobreix la història completa.</p>
+  <div class="pdf-frame">
+    <embed id="pdfEmbed" src="historia-completa.pdf" type="application/pdf" />
+  </div>
+  <a class="pdf-link" href="historia-completa.pdf" target="_blank" rel="noreferrer">Obrir PDF</a>
 </div>
 
 <footer class="pie-pagina reveal">
@@ -255,8 +264,11 @@ I amb cada pas dels Almoràvids, la llegenda torna a nàixer.`
 <script>
   // Countdown hasta el 21 de agosto a las 23:59
   document.addEventListener('DOMContentLoaded', function () {
+    const targetDate = new Date(2026, 7, 21, 23, 59, 0).getTime(); // Agosto es mes 7 (0-indexado)
+    const pdfSection = document.getElementById('pdfSection');
+    const countdownTitle = document.getElementById('countdownTitle');
+
     function updateCountdown() {
-      const targetDate = new Date(2026, 7, 21, 23, 59, 0).getTime(); // Agosto es mes 7 (0-indexado)
       const now = new Date().getTime();
       const diff = targetDate - now;
 
@@ -265,6 +277,8 @@ I amb cada pas dels Almoràvids, la llegenda torna a nàixer.`
         document.getElementById('hours').textContent = '0';
         document.getElementById('minutes').textContent = '0';
         document.getElementById('seconds').textContent = '0';
+        countdownTitle.textContent = 'La història completa ja està disponible';
+        pdfSection.hidden = false;
         return;
       }
 
